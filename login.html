@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kaafall Admin — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/assets/Css/login.css"/>
+</head>
+<body>
+
+  <!-- Background mountain silhouette -->
+  <div class="bg-mountains">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,320 L0,180 L120,80 L240,160 L360,40 L480,140 L600,60 L720,160 L840,30 L960,130 L1080,50 L1200,150 L1320,70 L1440,140 L1440,320 Z" fill="rgba(212,168,83,0.04)"/>
+      <path d="M0,320 L0,220 L180,130 L360,200 L540,100 L720,200 L900,110 L1080,190 L1260,120 L1440,180 L1440,320 Z" fill="rgba(212,168,83,0.03)"/>
+    </svg>
+  </div>
+
+  <div class="login-wrapper">
+
+    <div class="login-card">
+
+      <!-- Logo -->
+      <div class="login-logo">
+        <div class="login-logo-icon">⛰️</div>
+        <div class="login-logo-text">KAAFALL</div>
+        <div class="login-logo-sub">Admin Portal</div>
+      </div>
+
+      <h1 class="login-heading">Welcome Back</h1>
+      <p class="login-sub">Sign in to manage your travel operations</p>
+
+      <!-- Error banner -->
+      <div class="login-error" id="loginError"></div>
+
+      <!-- Form -->
+      <div class="login-form">
+
+        <div class="form-group">
+          <label class="form-label">Admin ID</label>
+          <div class="input-wrap">
+            <span class="input-icon">👤</span>
+            <input
+              type="text"
+              id="adminId"
+              class="form-input"
+              placeholder="Enter your admin ID"
+              autocomplete="username"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="input-wrap">
+            <span class="input-icon">🔒</span>
+            <input
+              type="password"
+              id="adminPass"
+              class="form-input"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+            />
+            <button class="toggle-pw" id="togglePass" type="button" onclick="togglePassword()">👁</button>
+          </div>
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" id="rememberMe"/> Remember me
+          </label>
+          <span class="forgot-link" onclick="showForgot()">Forgot password?</span>
+        </div>
+
+        <button class="login-btn" id="loginBtn" onclick="handleLogin()">
+          <span id="btnText">Sign In</span>
+          <span id="btnLoader" class="spinner" style="display:none">⟳</span>
+        </button>
+
+      </div><!-- /form -->
+
+      <!-- Demo credentials hint -->
+      <div class="cred-hint">
+        <div class="cred-hint-title">🔑 Demo Credentials</div>
+        <div class="cred-row">
+          <span class="cred-key">Admin ID</span>
+          <code>admin@kaafall</code>
+        </div>
+        <div class="cred-row">
+          <span class="cred-key">Password</span>
+          <code>Kaafall@2025</code>
+        </div>
+        <div class="cred-tip">Click a value to auto-fill</div>
+      </div>
+
+    </div><!-- /card -->
+
+    <div class="login-footer">© 2025 Kaafall Travels · Uttarakhand, Land of Gods</div>
+
+  </div><!-- /wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>

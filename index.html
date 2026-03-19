@@ -98,7 +98,13 @@
         <div class="user-name">Arjun Kumar</div>
         <div class="user-role">Super Admin</div>
       </div>
-      <div style="margin-left:auto;color:var(--muted);font-size:18px;cursor:pointer">⋮</div>
+      <div
+        title="Logout"
+        onclick="logout()"
+        style="margin-left:auto;color:var(--muted);font-size:18px;cursor:pointer;transition:color .2s"
+        onmouseover="this.style.color='var(--red)'"
+        onmouseout="this.style.color='var(--muted)'"
+      >⏻</div>
     </div>
   </div>
 

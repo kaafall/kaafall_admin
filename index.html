@@ -1,11 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kaafall Admin Panel</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/assets/Css/style.css"/>
 </head>
 <body>
-    test
+
+<!-- ── MOBILE OVERLAY ── -->
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+
+<!-- ════════════════════════════════════════
+     SIDEBAR
+════════════════════════════════════════ -->
+<nav class="sidebar" id="sidebar">
+
+  <!-- Logo -->
+  <div class="logo">
+    <div class="logo-badge">
+      <div class="logo-icon">⛰️</div>
+      <div>
+        <div class="logo-text">KAAFALL</div>
+        <div class="logo-sub">Admin Panel</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav">
+
+    <div class="nav-section">Overview</div>
+    <a class="nav-item active" onclick="setPage('Dashboard')">
+      <span class="nav-icon">🏔</span> Dashboard
+    </a>
+    <a class="nav-item" onclick="setPage('Analytics')">
+      <span class="nav-icon">📊</span> Analytics
+    </a>
+
+    <div class="nav-section">Operations</div>
+    <a class="nav-item" onclick="setPage('Bookings')">
+      <span class="nav-icon">📋</span> Bookings
+      <span class="nav-badge">14</span>
+    </a>
+    <a class="nav-item" onclick="setPage('Packages')">
+      <span class="nav-icon">🎒</span> Packages
+    </a>
+    <a class="nav-item" onclick="setPage('Destinations')">
+      <span class="nav-icon">🗺️</span> Destinations
+    </a>
+    <a class="nav-item" onclick="setPage('Itineraries')">
+      <span class="nav-icon">📅</span> Itineraries
+    </a>
+
+    <div class="nav-section">Customers</div>
+    <a class="nav-item" onclick="setPage('Customers')">
+      <span class="nav-icon">👤</span> Customers
+    </a>
+    <a class="nav-item" onclick="setPage('Enquiries')">
+      <span class="nav-icon">💬</span> Enquiries
+      <span class="nav-badge">6</span>
+    </a>
+    <a class="nav-item" onclick="setPage('Reviews')">
+      <span class="nav-icon">⭐</span> Reviews
+    </a>
+
+    <div class="nav-section">Finance</div>
+    <a class="nav-item" onclick="setPage('Revenue')">
+      <span class="nav-icon">💰</span> Revenue
+    </a>
+    <a class="nav-item" onclick="setPage('Invoices')">
+      <span class="nav-icon">🧾</span> Invoices
+    </a>
+
+    <div class="nav-section">System</div>
+    <a class="nav-item" onclick="setPage('Blog')">
+      <span class="nav-icon">✍️</span> Blog
+    </a>
+    <a class="nav-item" onclick="setPage('Settings')">
+      <span class="nav-icon">⚙️</span> Settings
+    </a>
+
+  </div>
+
+  <!-- User footer -->
+  <div class="sidebar-footer">
+    <div class="user-card">
+      <div class="avatar">AK</div>
+      <div class="user-info">
+        <div class="user-name">Arjun Kumar</div>
+        <div class="user-role">Super Admin</div>
+      </div>
+      <div style="margin-left:auto;color:var(--muted);font-size:18px;cursor:pointer">⋮</div>
+    </div>
+  </div>
+
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     MAIN CONTENT AREA
+════════════════════════════════════════ -->
+<div class="main">
+
+  <!-- ── TOP BAR ── -->
+  <header class="topbar">
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    <div class="topbar-title" id="topbar-title">Dashboard</div>
+    <div class="topbar-right">
+      <div class="search-box">
+        <span style="color:var(--muted)">🔍</span>
+        <input type="text" placeholder="Search bookings, packages…"/>
+      </div>
+      <div class="icon-btn" title="Notifications">
+        🔔<div class="notif-dot"></div>
+      </div>
+      <div class="icon-btn" title="Messages">💬</div>
+      <div class="avatar" style="cursor:pointer;font-size:12px">AK</div>
+    </div>
+  </header>
+
+
+  <!-- ── PAGE CONTENT ── -->
+  <div class="content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="breadcrumb">Kaafall &rsaquo; <span id="crumb">Dashboard</span></div>
+      <h1>Overview Dashboard</h1>
+      <p>Welcome back, Arjun. Here's what's happening with your travel business today.</p>
+    </div>
+
+
+    <!-- ── KPI STAT CARDS ── -->
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon">📋</div>
+        <div class="stat-label">Total Bookings</div>
+        <div class="stat-value">1,284</div>
+        <div class="stat-sub"><span class="stat-up">↑ 12.4%</span> vs last month</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">💰</div>
+        <div class="stat-label">Revenue (₹)</div>
+        <div class="stat-value">₹84.6L</div>
+        <div class="stat-sub"><span class="stat-up">↑ 8.1%</span> vs last month</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-label">Active Travellers</div>
+        <div class="stat-value">3,940</div>
+        <div class="stat-sub"><span class="stat-up">↑ 5.7%</span> new this month</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-label">Avg. Rating</div>
+        <div class="stat-value">4.83</div>
+        <div class="stat-sub"><span class="stat-down">↓ 0.04</span> vs last month</div>
+      </div>
+
+    </div><!-- /stats-grid -->
+
+
+    <!-- ── BOOKINGS TABLE + RIGHT COLUMN ── -->
+    <div class="grid-2">
+
+      <!-- Recent Bookings Table -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Recent Bookings</div>
+          <div class="panel-action">View all →</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Booking ID</th>
+                <th>Customer</th>
+                <th>Destination</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="color:var(--muted);font-size:12px">#KF-2841</td>
+                <td>Priya Sharma</td>
+                <td><span class="dest-pill">⛰️ Kedarnath</span></td>
+                <td class="amount">₹32,400</td>
+                <td><span class="status confirmed"><span class="status-dot"></span>Confirmed</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--muted);font-size:12px">#KF-2840</td>
+                <td>Rahul Verma</td>
+                <td><span class="dest-pill">🌸 Char Dham</span></td>
+                <td class="amount">₹48,200</td>
+                <td><span class="status pending"><span class="status-dot"></span>Pending</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--muted);font-size:12px">#KF-2839</td>
+                <td>Meena Patel</td>
+                <td><span class="dest-pill">🌊 Rishikesh</span></td>
+                <td class="amount">₹15,600</td>
+                <td><span class="status confirmed"><span class="status-dot"></span>Confirmed</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--muted);font-size:12px">#KF-2838</td>
+                <td>Sanjay Gupta</td>
+                <td><span class="dest-pill">🏔 Auli</span></td>
+                <td class="amount">₹27,800</td>
+                <td><span class="status cancelled"><span class="status-dot"></span>Cancelled</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--muted);font-size:12px">#KF-2837</td>
+                <td>Anjali Singh</td>
+                <td><span class="dest-pill">🌺 Badrinath</span></td>
+                <td class="amount">₹22,500</td>
+                <td><span class="status confirmed"><span class="status-dot"></span>Confirmed</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--muted);font-size:12px">#KF-2836</td>
+                <td>Vikram Nair</td>
+                <td><span class="dest-pill">🏝 Maldives</span></td>
+                <td class="amount">₹1,20,000</td>
+                <td><span class="status pending"><span class="status-dot"></span>Pending</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><!-- /bookings panel -->
+
+      <!-- Right Column -->
+      <div style="display:flex;flex-direction:column;gap:16px">
+
+        <!-- Revenue Bar Chart -->
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">Revenue (₹ Lakhs)</div>
+            <div class="panel-action" style="font-size:11px;color:var(--muted)">Mar 2025</div>
+          </div>
+          <div class="chart-bars" style="margin-top:16px">
+            <div class="bar-wrap"><div class="bar" style="height:52px"></div><div class="bar-label">Sep</div></div>
+            <div class="bar-wrap"><div class="bar" style="height:40px"></div><div class="bar-label">Oct</div></div>
+            <div class="bar-wrap"><div class="bar" style="height:65px"></div><div class="bar-label">Nov</div></div>
+            <div class="bar-wrap"><div class="bar" style="height:35px"></div><div class="bar-label">Dec</div></div>
+            <div class="bar-wrap"><div class="bar" style="height:75px"></div><div class="bar-label">Jan</div></div>
+            <div class="bar-wrap"><div class="bar" style="height:58px"></div><div class="bar-label">Feb</div></div>
+            <div class="bar-wrap">
+              <div class="bar" style="height:80px;opacity:1;background:var(--accent)"></div>
+              <div class="bar-label" style="color:var(--accent)">Mar</div>
+            </div>
+          </div>
+          <div class="chart-footer">
+            <div class="chart-stat">
+              <div class="chart-stat-val" style="color:var(--green)">₹84.6L</div>
+              <div class="chart-stat-lbl">This Month</div>
+            </div>
+            <div class="chart-stat">
+              <div class="chart-stat-val">₹78.2L</div>
+              <div class="chart-stat-lbl">Last Month</div>
+            </div>
+            <div class="chart-stat">
+              <div class="chart-stat-val" style="color:var(--accent)">+8.1%</div>
+              <div class="chart-stat-lbl">Growth</div>
+            </div>
+          </div>
+        </div><!-- /revenue chart -->
+
+        <!-- Quick Actions -->
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">Quick Actions</div>
+          </div>
+          <div class="quick-grid">
+            <button class="quick-btn"><span class="qb-icon">➕</span><div class="qb-label">New Package</div></button>
+            <button class="quick-btn"><span class="qb-icon">📩</span><div class="qb-label">Send Invoice</div></button>
+            <button class="quick-btn"><span class="qb-icon">👤</span><div class="qb-label">Add Customer</div></button>
+            <button class="quick-btn"><span class="qb-icon">✍️</span><div class="qb-label">Write Blog</div></button>
+          </div>
+        </div><!-- /quick actions -->
+
+      </div><!-- /right column -->
+
+    </div><!-- /grid-2 -->
+
+
+    <!-- ── TOP DESTINATIONS ── -->
+    <div class="panel" style="margin-bottom:24px">
+      <div class="panel-header">
+        <div class="panel-title">Top Destinations</div>
+        <div class="panel-action">Manage →</div>
+      </div>
+      <div class="dest-grid" style="padding:16px">
+
+        <div class="dest-card">
+          <div class="dest-img" style="background:linear-gradient(135deg,#1a2a1a,#2a3a2a)">⛰️</div>
+          <div class="dest-card-body">
+            <div class="dest-name">Kedarnath</div>
+            <div class="dest-count">128 bookings · 4.9 ⭐</div>
+            <div class="dest-revenue">↑ ₹18.2L revenue</div>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="dest-img" style="background:linear-gradient(135deg,#1a1a2a,#2a2a3a)">🌸</div>
+          <div class="dest-card-body">
+            <div class="dest-name">Char Dham</div>
+            <div class="dest-count">94 bookings · 4.8 ⭐</div>
+            <div class="dest-revenue">↑ ₹24.6L revenue</div>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="dest-img" style="background:linear-gradient(135deg,#0d1a2a,#1a2a3a)">🌊</div>
+          <div class="dest-card-body">
+            <div class="dest-name">Rishikesh</div>
+            <div class="dest-count">211 bookings · 4.7 ⭐</div>
+            <div class="dest-revenue">↑ ₹12.8L revenue</div>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="dest-img" style="background:linear-gradient(135deg,#2a1a0a,#3a2a1a)">🏔</div>
+          <div class="dest-card-body">
+            <div class="dest-name">Auli</div>
+            <div class="dest-count">76 bookings · 4.7 ⭐</div>
+            <div class="dest-revenue">↑ ₹9.4L revenue</div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /top destinations -->
+
+
+    <!-- ── ACTIVITY FEED + ENQUIRIES ── -->
+    <div class="grid-2">
+
+      <!-- Activity Feed -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Recent Activity</div>
+          <div class="panel-action">Clear all</div>
+        </div>
+        <div class="activity-list">
+
+          <div class="activity-item">
+            <div class="act-icon green">✅</div>
+            <div>
+              <div class="act-text">Booking <b>#KF-2841</b> confirmed — Kedarnath package for Priya Sharma</div>
+              <div class="act-time">2 mins ago</div>
+            </div>
+          </div>
+
+          <div class="activity-item">
+            <div class="act-icon blue">💬</div>
+            <div>
+              <div class="act-text">New enquiry from <b>Rahul Verma</b> for Char Dham Yatra (6 nights)</div>
+              <div class="act-time">14 mins ago</div>
+            </div>
+          </div>
+
+          <div class="activity-item">
+            <div class="act-icon gold">⭐</div>
+            <div>
+              <div class="act-text"><b>Anjali Singh</b> left a 5-star review for the Badrinath package</div>
+              <div class="act-time">1 hr ago</div>
+            </div>
+          </div>
+
+          <div class="activity-item">
+            <div class="act-icon red">❌</div>
+            <div>
+              <div class="act-text">Booking <b>#KF-2838</b> cancelled — Auli trip by Sanjay Gupta</div>
+              <div class="act-time">2 hrs ago</div>
+            </div>
+          </div>
+
+          <div class="activity-item">
+            <div class="act-icon green">💰</div>
+            <div>
+              <div class="act-text">Payment of <b>₹48,200</b> received for Char Dham Yatra booking</div>
+              <div class="act-time">3 hrs ago</div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /activity -->
+
+      <!-- Pending Enquiries -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Pending Enquiries</div>
+          <div class="panel-action" style="background:rgba(212,168,83,.12);color:var(--accent);padding:3px 10px;border-radius:6px;font-size:11.5px;border:1px solid rgba(212,168,83,.2)">6 new</div>
+        </div>
+        <div class="activity-list">
+
+          <div class="activity-item">
+            <div class="avatar" style="width:32px;height:32px;font-size:11px;flex-shrink:0;margin-top:2px">VS</div>
+            <div style="flex:1">
+              <div class="act-text"><b>Vikas Sinha</b> — Valley of Flowers trek, 8 days</div>
+              <div class="act-time" style="display:flex;align-items:center;justify-content:space-between">
+                <span>30 mins ago</span>
+                <span style="color:var(--accent2);font-size:11.5px;cursor:pointer">Respond →</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="activity-item">
+            <div class="avatar" style="width:32px;height:32px;font-size:11px;flex-shrink:0;margin-top:2px;background:linear-gradient(135deg,#4e9af1,#2563eb)">NK</div>
+            <div style="flex:1">
+              <div class="act-text"><b>Neha Kaur</b> — Honeymoon package Maldives, 5 nights</div>
+              <div class="act-time" style="display:flex;align-items:center;justify-content:space-between">
+                <span>1 hr ago</span>
+                <span style="color:var(--accent2);font-size:11.5px;cursor:pointer">Respond →</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="activity-item">
+            <div class="avatar" style="width:32px;height:32px;font-size:11px;flex-shrink:0;margin-top:2px;background:linear-gradient(135deg,var(--green),#2a9d6f)">AM</div>
+            <div style="flex:1">
+              <div class="act-text"><b>Amit Mishra</b> — Group tour Nainital 12 people, budget ₹60K</div>
+              <div class="act-time" style="display:flex;align-items:center;justify-content:space-between">
+                <span>2 hrs ago</span>
+                <span style="color:var(--accent2);font-size:11.5px;cursor:pointer">Respond →</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="activity-item">
+            <div class="avatar" style="width:32px;height:32px;font-size:11px;flex-shrink:0;margin-top:2px;background:linear-gradient(135deg,#d4a853,#b8860b)">RK</div>
+            <div style="flex:1">
+              <div class="act-text"><b>Ritu Khanna</b> — Singapore family trip, July dates</div>
+              <div class="act-time" style="display:flex;align-items:center;justify-content:space-between">
+                <span>3 hrs ago</span>
+                <span style="color:var(--accent2);font-size:11.5px;cursor:pointer">Respond →</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /enquiries -->
+
+    </div><!-- /grid-2 -->
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+
+<!-- JavaScript -->
+<script src="script.js"></script>
 </body>
 </html>
